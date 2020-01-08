@@ -11,4 +11,23 @@ class Comment extends Model{
         'comment',
         'likes',
     ];
+    public function upvoteAndSave () {
+
+        $this -> likes += 1;
+
+        $this -> timestamps = false;
+        $this -> update ();
+        $this -> timestamps = true;
+
+    }
+
+    public function downvoteAndSave () {
+
+        $this -> likes -= 1;
+
+        $this -> timestamps = false;
+        $this -> update ();
+        $this -> timestamps = true;
+
+    }
 }
